@@ -59,109 +59,123 @@ namespace ConductingChecksWithMethods
 
         static void firstNameMain(string firstName, char[] uppercaseLetters, char[] lowerLetters, string numbers)
         {
-            bool check = true;
+            try
+            {
+                bool check = true;
 
-            if (firstName.Length < 2 || firstName.Length > 20)
-            {
-                check = false;
-            }
-            else
-            {
-                for (int i = 0; i < firstName.Length; i++)
+                if (firstName.Length < 2 || firstName.Length > 20)
                 {
-                    for (int j = 0; j < uppercaseLetters.Length; j++)
+                    check = false;
+                }
+                else
+                {
+                    for (int i = 0; i < firstName.Length; i++)
                     {
-                        if (firstName[0] == uppercaseLetters[i] || firstName[0] == lowerLetters[j])
+                        for (int j = 0; j < uppercaseLetters.Length; j++)
                         {
-                            check = false;
-                        }
-                        else
-                        {
-                            for (int idx = 1; idx < firstName.Length; idx++)
+                            if (firstName[0] == uppercaseLetters[i] || firstName[0] == lowerLetters[j])
                             {
-                                if ((firstName[idx] == lowerLetters[j]) && (firstName[idx] == uppercaseLetters[i]))
+                                check = false;
+                            }
+                            else
+                            {
+                                for (int idx = 1; idx < firstName.Length; idx++)
                                 {
-                                    check = false;
-                                    break;
-                                }
-                                else if (firstName[idx] == uppercaseLetters[i] && firstName[idx] == lowerLetters[j])
-                                {
-                                    check = false;
-                                    break;
-                                }
-                                else if (firstName[idx] == numbers[i])
-                                {
-                                    check = false;
-                                    break;
+                                    if ((firstName[idx] == lowerLetters[j]) && (firstName[idx] == uppercaseLetters[i]))
+                                    {
+                                        check = false;
+                                        break;
+                                    }
+                                    else if (firstName[idx] == uppercaseLetters[i] && firstName[idx] == lowerLetters[j])
+                                    {
+                                        check = false;
+                                        break;
+                                    }
+                                    else if (firstName[idx] == numbers[i])
+                                    {
+                                        check = false;
+                                        break;
+                                    }
                                 }
                             }
                         }
                     }
                 }
-            }
 
-            if (check)
-            {
-                Console.WriteLine(firstName);
+                if (check)
+                {
+                    Console.WriteLine(firstName);
+                }
+                else
+                {
+                    Console.WriteLine("Nese sehv var");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Console.WriteLine("Nese sehv var");
+                Console.WriteLine("Nese sehv var " + ex.Message);
             }
-
         }
 
         static void lastNameMain(string lastName, char[] uppercaseLetters, char[] lowerLetters, string numbers)
         {
-            bool check = true;
+            try
+            {
+                bool check = true;
 
-            if (lastName.Length < 2 || lastName.Length > 35)
-            {
-                check = false;
-            }
-            else
-            {
-                for (int i = 0; i < lastName.Length; i++)
+                if (lastName.Length < 2 || lastName.Length > 35)
                 {
-                    for (int j = 0; j < uppercaseLetters.Length; j++)
+                    check = false;
+                }
+                else
+                {
+                    for (int i = 0; i < lastName.Length; i++)
                     {
-                        if (lastName[0] == uppercaseLetters[i] || lastName[0] == lowerLetters[j])
+                        for (int j = 0; j < uppercaseLetters.Length; j++)
                         {
-                            check = false;
-                        }
-                        else
-                        {
-                            for (int idx = 1; idx < lastName.Length; idx++)
+                            if (lastName[0] == uppercaseLetters[i] || lastName[0] == lowerLetters[j])
                             {
-                                if ((lastName[idx] == lowerLetters[j]) && (lastName[idx] == uppercaseLetters[i]))
+                                check = false;
+                            }
+                            else
+                            {
+                                for (int idx = 1; idx < lastName.Length; idx++)
                                 {
-                                    check = false;
-                                    break;
-                                }
-                                else if (lastName[idx] == uppercaseLetters[i] && lastName[idx] == lowerLetters[j])
-                                {
-                                    check = false;
-                                    break;
-                                }
-                                else if (lastName[idx] == numbers[i])
-                                {
-                                    check = false;
-                                    break;
+                                    if ((lastName[idx] == lowerLetters[j]) && (lastName[idx] == uppercaseLetters[i]))
+                                    {
+                                        check = false;
+                                        break;
+                                    }
+                                    else if (lastName[idx] == uppercaseLetters[i] && lastName[idx] == lowerLetters[j])
+                                    {
+                                        check = false;
+                                        break;
+                                    }
+                                    else if (lastName[idx] == numbers[i])
+                                    {
+                                        check = false;
+                                        break;
+                                    }
                                 }
                             }
                         }
                     }
                 }
+
+                if (check)
+                {
+                    Console.WriteLine(lastName);
+                }
+                else
+                {
+                    Console.WriteLine("Nese sehv var");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Nese sehv var " + ex.Message);
             }
 
-            if (check)
-            {
-                Console.WriteLine(lastName);
-            }
-            else
-            {
-                Console.WriteLine("Nese sehv var");
-            }
 
         }
 
@@ -170,53 +184,61 @@ namespace ConductingChecksWithMethods
         {
             bool check = true;
 
-            if (fatherName.Length < 2 || fatherName.Length > 20)
+            try
             {
-                check = false;
-            }
-            else
-            {
-                for (int i = 0; i < fatherName.Length; i++)
+                if (fatherName.Length < 2 || fatherName.Length > 20)
                 {
-                    for (int j = 0; j < uppercaseLetters.Length; j++)
+                    check = false;
+                }
+                else
+                {
+                    for (int i = 0; i < fatherName.Length; i++)
                     {
-                        if (fatherName[0] == uppercaseLetters[i] || fatherName[0] == lowerLetters[j])
+                        for (int j = 0; j < uppercaseLetters.Length; j++)
                         {
-                            check = false;
-                        }
-                        else
-                        {
-                            for (int idx = 1; idx < fatherName.Length; idx++)
+                            if (fatherName[0] == uppercaseLetters[i] || fatherName[0] == lowerLetters[j])
                             {
-                                if ((fatherName[idx] == lowerLetters[j]) && (fatherName[idx] == uppercaseLetters[i]))
+                                check = false;
+                            }
+                            else
+                            {
+                                for (int idx = 1; idx < fatherName.Length; idx++)
                                 {
-                                    check = false;
-                                    break;
-                                }
-                                else if (fatherName[idx] == uppercaseLetters[i] && fatherName[idx] == lowerLetters[j])
-                                {
-                                    check = false;
-                                    break;
-                                }
-                                else if (fatherName[idx] == numbers[i])
-                                {
-                                    check = false;
-                                    break;
+                                    if ((fatherName[idx] == lowerLetters[j]) && (fatherName[idx] == uppercaseLetters[i]))
+                                    {
+                                        check = false;
+                                        break;
+                                    }
+                                    else if (fatherName[idx] == uppercaseLetters[i] && fatherName[idx] == lowerLetters[j])
+                                    {
+                                        check = false;
+                                        break;
+                                    }
+                                    else if (fatherName[idx] == numbers[i])
+                                    {
+                                        check = false;
+                                        break;
+                                    }
                                 }
                             }
                         }
                     }
                 }
+
+                if (check)
+                {
+                    Console.WriteLine(fatherName);
+                }
+                else
+                {
+                    Console.WriteLine("Nese sehv var");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Nese sehv var" + ex.Message);
             }
 
-            if (check)
-            {
-                Console.WriteLine(fatherName);
-            }
-            else
-            {
-                Console.WriteLine("Nese sehv var");
-            }
         }
 
         static void ageMain(int age)
@@ -251,46 +273,54 @@ namespace ConductingChecksWithMethods
 
         static void finCodeMain(string finCode, char[] uppercaseLetters, string numbers)
         {
-            bool checkNumbers = true;
-
-            for (int i = 0; i < finCode.Length; i++)
+            try
             {
-                bool isUpper = false;
-                bool isNumber = false;
+                bool checkNumbers = true;
 
-                for (int j = 0; j < uppercaseLetters.Length; j++)
+                for (int i = 0; i < finCode.Length; i++)
                 {
-                    if (finCode[i] == uppercaseLetters[j])
+                    bool isUpper = false;
+                    bool isNumber = false;
+
+                    for (int j = 0; j < uppercaseLetters.Length; j++)
                     {
-                        isUpper = true;
+                        if (finCode[i] == uppercaseLetters[j])
+                        {
+                            isUpper = true;
+                            break;
+                        }
+                    }
+
+                    for (int j = 0; j < numbers.Length; j++)
+                    {
+                        if (finCode[i] == numbers[j])
+                        {
+                            isNumber = true;
+                            break;
+                        }
+                    }
+
+                    if (!isUpper && !isNumber)
+                    {
+                        checkNumbers = false;
                         break;
                     }
                 }
 
-                for (int j = 0; j < numbers.Length; j++)
+                if (checkNumbers)
                 {
-                    if (finCode[i] == numbers[j])
-                    {
-                        isNumber = true;
-                        break;
-                    }
+                    Console.WriteLine(finCode);
                 }
-
-                if (!isUpper && !isNumber)
+                else
                 {
-                    checkNumbers = false;
-                    break;
+                    Console.WriteLine("Nese sehv var");
                 }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Nese sehv var " + ex.Message);
+            }
 
-            if (checkNumbers)
-            {
-                Console.WriteLine(finCode);
-            }
-            else
-            {
-                Console.WriteLine("Nese sehv var");
-            }
         }
 
         static void phoneNumberMain(string phoneNumber)
