@@ -1,0 +1,15 @@
+C:\Users\Asus\Desktop\01.04.2023\ConductingChecksWithMethods\ConductingChecksWithMethods\bin\Debug\net6.0\ConductingChecksWithMethods.exe
+C:\Users\Asus\Desktop\01.04.2023\ConductingChecksWithMethods\ConductingChecksWithMethods\bin\Debug\net6.0\ConductingChecksWithMethods.deps.json
+C:\Users\Asus\Desktop\01.04.2023\ConductingChecksWithMethods\ConductingChecksWithMethods\bin\Debug\net6.0\ConductingChecksWithMethods.runtimeconfig.json
+C:\Users\Asus\Desktop\01.04.2023\ConductingChecksWithMethods\ConductingChecksWithMethods\bin\Debug\net6.0\ConductingChecksWithMethods.dll
+C:\Users\Asus\Desktop\01.04.2023\ConductingChecksWithMethods\ConductingChecksWithMethods\bin\Debug\net6.0\ConductingChecksWithMethods.pdb
+C:\Users\Asus\Desktop\01.04.2023\ConductingChecksWithMethods\ConductingChecksWithMethods\obj\Debug\net6.0\ConductingChecksWithMethods.csproj.AssemblyReference.cache
+C:\Users\Asus\Desktop\01.04.2023\ConductingChecksWithMethods\ConductingChecksWithMethods\obj\Debug\net6.0\ConductingChecksWithMethods.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Asus\Desktop\01.04.2023\ConductingChecksWithMethods\ConductingChecksWithMethods\obj\Debug\net6.0\ConductingChecksWithMethods.AssemblyInfoInputs.cache
+C:\Users\Asus\Desktop\01.04.2023\ConductingChecksWithMethods\ConductingChecksWithMethods\obj\Debug\net6.0\ConductingChecksWithMethods.AssemblyInfo.cs
+C:\Users\Asus\Desktop\01.04.2023\ConductingChecksWithMethods\ConductingChecksWithMethods\obj\Debug\net6.0\ConductingChecksWithMethods.csproj.CoreCompileInputs.cache
+C:\Users\Asus\Desktop\01.04.2023\ConductingChecksWithMethods\ConductingChecksWithMethods\obj\Debug\net6.0\ConductingChecksWithMethods.dll
+C:\Users\Asus\Desktop\01.04.2023\ConductingChecksWithMethods\ConductingChecksWithMethods\obj\Debug\net6.0\refint\ConductingChecksWithMethods.dll
+C:\Users\Asus\Desktop\01.04.2023\ConductingChecksWithMethods\ConductingChecksWithMethods\obj\Debug\net6.0\ConductingChecksWithMethods.pdb
+C:\Users\Asus\Desktop\01.04.2023\ConductingChecksWithMethods\ConductingChecksWithMethods\obj\Debug\net6.0\ConductingChecksWithMethods.genruntimeconfig.cache
+C:\Users\Asus\Desktop\01.04.2023\ConductingChecksWithMethods\ConductingChecksWithMethods\obj\Debug\net6.0\ref\ConductingChecksWithMethods.dll
