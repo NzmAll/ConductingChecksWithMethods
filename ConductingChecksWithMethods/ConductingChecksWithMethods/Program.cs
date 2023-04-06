@@ -1,413 +1,500 @@
-﻿using System.Xml;
-using System.Xml.Linq;
-
-namespace ConductingChecksWithMethods
+﻿namespace HRManagementSystem
 {
-    internal class Program
+    //custom type
+    public class Person
+    {
+        //fields (data)
+        public string _firstName;
+        public string _lastName;
+        public string _fatherName;
+        //public int _age;
+        //public string _pin;
+        //public string _phoneNumber;
+        //public string _position;
+        //public decimal _montlySalary;
+    }
+
+    public class Program
     {
         static void Main(string[] args)
         {
-            char[] uppercaseLetters = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
-            char[] lowerLetters = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
-            string numbers = "0123456789";
+            Console.WriteLine("Person's count : ");
+            int count = int.Parse(Console.ReadLine()!);
+            Person[] persons = new Person[count];
 
-            Console.Write("Adi daxil edin: ");
-            string firstName = Convert.ToString(Console.ReadLine()!);
-            firstNameMain(firstName, uppercaseLetters, lowerLetters, numbers);
+            int i = 0;
 
-            Console.Write("Soyadi daxil edin: ");
-            string lastName = Convert.ToString(Console.ReadLine()!);
-            lastNameMain(lastName, uppercaseLetters, lowerLetters, numbers);
+            while (i < count)
+            {
+                string firstName = GetAndValidateFirstName();
+                string lastName = GetAndValidateLastName();
+                string fatherName = GetAndValidateFatherName();
+                //int age = GetAndValidateAge();
+                //string pin = GetAndValidatePin();
+                //string phoneNumber = GetAndValidatePhoneNumber();
+                //string position = GetAndValidatePosition();
+                //decimal monthlySalary = GetAndValidateMonthlySalary();
 
-            Console.Write("Ata adini daxil edin: ");
-            string fatherName = Convert.ToString(Console.ReadLine()!);
-            fatherNameMain(fatherName, uppercaseLetters, lowerLetters, numbers);
+                Person human = new Person
+                {
+                    _firstName = firstName,
+                    _lastName = lastName,
+                    _fatherName = fatherName,
+                    //_age = age,
+                    //_pin = pin,
+                    //_phoneNumber = phoneNumber,
+                    //_position = position,
+                    //_montlySalary = monthlySalary
+                };
 
-            Console.Write("Yasi daxil edin: ");
-            int age = Convert.ToInt32(Console.ReadLine());
-            ageMain(age);
+                persons[i] = human;
 
-            Console.Write("FIN-i daxil edin: ");
-            string finCode = Convert.ToString(Console.ReadLine()!);
-            finCodeMain(finCode, uppercaseLetters, numbers);
+                //firstNames[i] = firstName;
+                //lastNames[i] = lastName;
+                //fatherNames[i] = fatherName;
+                //ages[i] = age;
+                //pins[i] = pin;
+                //phoneNumbers[i] = phoneNumber;
+                //positions[i] = position;
+                //monthlySalaries[i] = monthlySalary;
 
-            Console.Write("Telefon nomresini daxil edin: ");
-            string phoneNumber = Convert.ToString(Console.ReadLine()!);
-            phoneNumberMain(phoneNumber);
+                Console.WriteLine($"Məlumat Sistemə əlavə olundu");
 
-            Console.Write("Pozisiyani daxil edin: ");
-            string position = Convert.ToString(Console.ReadLine()!);
-            positionMain(position);
+                i++;
+            }
 
-            Console.Write("Maasi daxil edin: ");
-            double salary = Convert.ToDouble(Console.ReadLine()!);
-            salaryMain(salary);
-
-            Console.WriteLine("");
-            Console.WriteLine("######################################################################################");
-            Console.WriteLine("");
-            Console.WriteLine("Ad: " + firstName);
-            Console.WriteLine("Soyad: " + lastName);
-            Console.WriteLine("Ata adi: " + fatherName);
-            Console.WriteLine("Yas: " + age);
-            Console.WriteLine("FIN kod: " + finCode);
-            Console.WriteLine("Telefon: " + phoneNumber);
-            Console.WriteLine("Pozisiya: " + position);
-            Console.WriteLine("Maas: " + salary);
-
+            PrintPersonsInfo(persons);
         }
 
-        static void firstNameMain(string firstName, char[] uppercaseLetters, char[] lowerLetters, string numbers)
+        public static void PrintPersonsInfo(Person[] people)
+        {
+            for (int k = 0; k < people.Length; k++)
+            {
+                Console.WriteLine($"First name : {people[k]._firstName}");
+                Console.WriteLine($"Last name : {people[k]._lastName}");
+                Console.WriteLine($"Father name : {people[k]._fatherName}");
+
+                //Console.WriteLine($"Age : {persons[k]}");
+                //Console.WriteLine($"Pin : {persons[k]}");
+                //Console.WriteLine($"Phone number : {persons[k]}");
+                //Console.WriteLine($"Position : {persons[k]}");
+                //Console.WriteLine($"Monthly salary : {persons[k]}");
+                //Console.WriteLine();
+            }
+        }
+
+        #region First name
+
+        static string GetAndValidateFirstName()
+        {
+            while (true)
+            {
+                Console.WriteLine("Pls enter first name : ");
+                string firstName = Console.ReadLine()!;
+
+                if (IsValidFirstName(firstName))
+                    return firstName;
+
+                Console.WriteLine("Some information is not correnct");
+            }
+        }
+        static bool IsValidFirstName(string firstName)
+        {
+            int MIN_LENGTH = 2;
+            int MAX_LENGTH = 20;
+
+            return IsValidName(firstName, MIN_LENGTH, MAX_LENGTH);
+        }
+
+        #endregion
+
+        #region Last name
+
+        static string GetAndValidateLastName()
+        {
+            while (true)
+            {
+                Console.WriteLine("Pls enter last name : ");
+                string lastName = Console.ReadLine()!;
+
+                if (IsValidLastName(lastName))
+                    return lastName;
+
+                Console.WriteLine("Some information is not correnct");
+            }
+        }
+        static bool IsValidLastName(string lastName)
+        {
+            int MIN_LENGTH = 2;
+            int MAX_LENGTH = 30;
+
+            return IsValidName(lastName, MIN_LENGTH, MAX_LENGTH);
+        }
+
+        #endregion
+
+        #region Father name
+
+        static string GetAndValidateFatherName()
+        {
+            while (true)
+            {
+                Console.WriteLine("Pls enter father name : ");
+                string fatherName = Console.ReadLine()!;
+
+                if (IsValidFatherName(fatherName))
+                    return fatherName;
+
+                Console.WriteLine("Some information is not correnct");
+            }
+        }
+        static bool IsValidFatherName(string fatherName)
+        {
+            int MIN_LENGTH = 2;
+            int MAX_LENGTH = 45;
+
+            return IsValidName(fatherName, MIN_LENGTH, MAX_LENGTH);
+        }
+
+        #endregion
+
+        #region Age
+
+        static int GetAndValidateAge()
+        {
+            while (true)
+            {
+                Console.WriteLine("Pls enter age : ");
+                var isParsable = TryParse(Console.ReadLine()!, out int age);
+                if (!isParsable)
+                {
+                    continue;
+                }
+
+                //Early return 
+                if (IsLengthBetween(age, 18, 65))
+                    return age;
+
+                Console.WriteLine("Some information is not correnct");
+            }
+        }
+
+        #endregion
+
+        #region PIN
+
+        static string GetAndValidatePin()
+        {
+            while (true)
+            {
+                Console.WriteLine("Pls enter pin : ");
+                string pin = Console.ReadLine()!;
+
+                if (IsValidPin(pin))
+                    return pin;
+
+                Console.WriteLine("Some information is not correnct");
+            }
+        }
+        static bool IsValidPin(string pin)
+        {
+            int PIN_LENGTH = 7;
+
+            if (!IsExactLength(pin, PIN_LENGTH))
+            {
+                return false;
+            }
+
+            bool isUpperLetter = false;
+            bool isDigit = false;
+
+            foreach (char character in pin)
+            {
+                if (IsUpperLetter(character))
+                {
+                    isUpperLetter = true;
+                }
+                else if (IsDigit(character))
+                {
+                    isDigit = true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+            return isUpperLetter && isDigit;
+        }
+
+        #endregion
+
+        #region Phone number
+
+        static string GetAndValidatePhoneNumber()
+        {
+            while (true)
+            {
+                Console.WriteLine("Pls enter phone number : ");
+                string phoneNumber = Console.ReadLine()!;
+
+                if (IsValidPhoneNumber(phoneNumber))
+                    return phoneNumber;
+
+                Console.WriteLine("Some information is not correnct");
+            }
+        }
+        static bool IsValidPhoneNumber(string phoneNumber)
+        {
+            string[] prefixes = { "+99450", "+99455", "+99470" };
+
+            int PHONE_NUMBER_LENGTH = 13;
+
+            if (!IsExactLength(phoneNumber, PHONE_NUMBER_LENGTH))
+            {
+                return false;
+            }
+
+            string phoneNumberPrefix = null;
+
+            foreach (string prefix in prefixes)
+            {
+                if (IsStartsWith(phoneNumber, prefix))
+                {
+                    phoneNumberPrefix = prefix;
+                }
+            }
+
+            //+99450
+
+            if (phoneNumberPrefix == null)
+                return false;
+
+            string substring = Substring(phoneNumber, phoneNumberPrefix.Length, phoneNumber.Length - 1);
+
+            if (!IsDigit(substring))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        #endregion
+
+        #region Position
+
+        static string GetAndValidatePosition()
+        {
+            while (true)
+            {
+                Console.WriteLine("Pls enter position : ");
+                string position = Console.ReadLine()!;
+
+                if (IsValidPosition(position))
+                    return position;
+
+
+                Console.WriteLine("Some information is not correnct");
+            }
+        }
+        static bool IsValidPosition(string position)
+        {
+            switch (position)
+            {
+                case "HR":
+                case "Audit":
+                case "Engineer":
+                    return true;
+
+                default:
+                    return false;
+            }
+        }
+
+        #endregion
+
+        #region Monthly salary
+
+        static decimal GetAndValidateMonthlySalary()
+        {
+            while (true)
+            {
+                Console.WriteLine("Pls enter monthly salary : ");
+                decimal amount = decimal.Parse(Console.ReadLine()!);
+
+                //Early return 
+                if (IsLengthBetween(amount, 1500, 5000))
+                    return amount;
+
+                Console.WriteLine("Some information is not correnct");
+            }
+        }
+
+        #endregion
+
+        #region Common
+
+        static bool IsValidName(string name, int minLength, int maxLenght)
+        {
+            if (!IsLengthBetween(name, minLength, maxLenght))
+            {
+                return false;
+            }
+
+            char firstLetter = name[0];
+
+            if (!IsUpperLetter(firstLetter))
+            {
+                return false;
+            }
+
+            for (int i = 1; i < name.Length; i++)
+            {
+                if (IsUpperLetter(name[i]))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        #endregion
+
+        #region Utility
+
+        public static bool TryParse(string text, out int number)
         {
             try
             {
-                bool check = true;
-
-                if (firstName.Length < 2 || firstName.Length > 20)
-                {
-                    check = false;
-                }
-                else
-                {
-                    for (int i = 0; i < firstName.Length; i++)
-                    {
-                        for (int j = 0; j < uppercaseLetters.Length; j++)
-                        {
-                            if (firstName[0] == uppercaseLetters[i] || firstName[0] == lowerLetters[j])
-                            {
-                                check = false;
-                            }
-                            else
-                            {
-                                for (int idx = 1; idx < firstName.Length; idx++)
-                                {
-                                    if ((firstName[idx] == lowerLetters[j]) && (firstName[idx] == uppercaseLetters[i]))
-                                    {
-                                        check = false;
-                                        break;
-                                    }
-                                    else if (firstName[idx] == uppercaseLetters[i] && firstName[idx] == lowerLetters[j])
-                                    {
-                                        check = false;
-                                        break;
-                                    }
-                                    else if (firstName[idx] == numbers[i])
-                                    {
-                                        check = false;
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                if (check)
-                {
-                    Console.WriteLine(firstName);
-                }
-                else
-                {
-                    Console.WriteLine("Nese sehv var");
-                }
+                number = int.Parse(text);
+                return true;
             }
-            catch (Exception ex)
+            catch
             {
-                Console.WriteLine("Nese sehv var " + ex.Message);
+                number = -1;
+                return false;
             }
         }
-
-        static void lastNameMain(string lastName, char[] uppercaseLetters, char[] lowerLetters, string numbers)
+        public static bool IsStartsWith(string text, string startText)
         {
-            try
+            if (startText.Length > text.Length)
             {
-                bool check = true;
-
-                if (lastName.Length < 2 || lastName.Length > 35)
-                {
-                    check = false;
-                }
-                else
-                {
-                    for (int i = 0; i < lastName.Length; i++)
-                    {
-                        for (int j = 0; j < uppercaseLetters.Length; j++)
-                        {
-                            if (lastName[0] == uppercaseLetters[i] || lastName[0] == lowerLetters[j])
-                            {
-                                check = false;
-                            }
-                            else
-                            {
-                                for (int idx = 1; idx < lastName.Length; idx++)
-                                {
-                                    if ((lastName[idx] == lowerLetters[j]) && (lastName[idx] == uppercaseLetters[i]))
-                                    {
-                                        check = false;
-                                        break;
-                                    }
-                                    else if (lastName[idx] == uppercaseLetters[i] && lastName[idx] == lowerLetters[j])
-                                    {
-                                        check = false;
-                                        break;
-                                    }
-                                    else if (lastName[idx] == numbers[i])
-                                    {
-                                        check = false;
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                if (check)
-                {
-                    Console.WriteLine(lastName);
-                }
-                else
-                {
-                    Console.WriteLine("Nese sehv var");
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Nese sehv var " + ex.Message);
+                return false;
             }
 
+            for (int i = 0; i < startText.Length; i++)
+            {
+                if (text[i] != startText[i])
+                {
+                    return false;
+                }
+            }
 
+            return true;
         }
-
-
-        static void fatherNameMain(string fatherName, char[] uppercaseLetters, char[] lowerLetters, string numbers)
+        public static string Substring(string text, int startIdx, int endIdx)
         {
-            bool check = true;
+            string subString = "";
 
-            try
+            for (int i = startIdx; i <= endIdx; i++)
             {
-                if (fatherName.Length < 2 || fatherName.Length > 20)
-                {
-                    check = false;
-                }
-                else
-                {
-                    for (int i = 0; i < fatherName.Length; i++)
-                    {
-                        for (int j = 0; j < uppercaseLetters.Length; j++)
-                        {
-                            if (fatherName[0] == uppercaseLetters[i] || fatherName[0] == lowerLetters[j])
-                            {
-                                check = false;
-                            }
-                            else
-                            {
-                                for (int idx = 1; idx < fatherName.Length; idx++)
-                                {
-                                    if ((fatherName[idx] == lowerLetters[j]) && (fatherName[idx] == uppercaseLetters[i]))
-                                    {
-                                        check = false;
-                                        break;
-                                    }
-                                    else if (fatherName[idx] == uppercaseLetters[i] && fatherName[idx] == lowerLetters[j])
-                                    {
-                                        check = false;
-                                        break;
-                                    }
-                                    else if (fatherName[idx] == numbers[i])
-                                    {
-                                        check = false;
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                if (check)
-                {
-                    Console.WriteLine(fatherName);
-                }
-                else
-                {
-                    Console.WriteLine("Nese sehv var");
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Nese sehv var" + ex.Message);
+                subString += text[i];
             }
 
+            return subString;
         }
-
-        static void ageMain(int age)
+        public static string SubstringFromEnd(string text, int length)
         {
-            bool check = false;
-
-            while (!check)
+            if (text.Length <= length || length < 0)
             {
-                try
-                {
-                    if (age >= 18 && age <= 65)
-                    {
-                        check = true;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Dogru daxil edilmeyib. ");
-                        Console.Write("Tekrar yazin: ");
-                        age = Convert.ToInt32(Console.ReadLine()!);
-                    }
-                }
-                catch (Exception)
-                {
-                    Console.Write("Tekrar yazin: ");
-                    age = Convert.ToInt32(Console.ReadLine()!);
-                }
+                return default;
             }
 
-            Console.WriteLine("Yas: " + age);
+            string subString = "";
+
+            for (int i = text.Length - 1; i >= text.Length - length; i--)
+            {
+                subString += text[i];
+            }
+
+            return Reverse(subString);
         }
 
-
-        static void finCodeMain(string finCode, char[] uppercaseLetters, string numbers)
+        public static string Reverse(string text)
         {
-            try
+            string reversed = "";
+
+            for (int i = text.Length - 1; i >= 0; i--)
             {
-                bool checkNumbers = true;
-
-                for (int i = 0; i < finCode.Length; i++)
-                {
-                    bool isUpper = false;
-                    bool isNumber = false;
-
-                    for (int j = 0; j < uppercaseLetters.Length; j++)
-                    {
-                        if (finCode[i] == uppercaseLetters[j])
-                        {
-                            isUpper = true;
-                            break;
-                        }
-                    }
-
-                    for (int j = 0; j < numbers.Length; j++)
-                    {
-                        if (finCode[i] == numbers[j])
-                        {
-                            isNumber = true;
-                            break;
-                        }
-                    }
-
-                    if (!isUpper && !isNumber)
-                    {
-                        checkNumbers = false;
-                        break;
-                    }
-                }
-
-                if (checkNumbers)
-                {
-                    Console.WriteLine(finCode);
-                }
-                else
-                {
-                    Console.WriteLine("Nese sehv var");
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Nese sehv var " + ex.Message);
+                reversed += text[i];
             }
 
+            return reversed;
         }
 
-        static void phoneNumberMain(string phoneNumber)
+        public static bool IsLengthBetween(decimal number, decimal min, decimal max)
         {
-            bool check = false;
-
-            while (!check)
-            {
-                try
-                {
-                    if (phoneNumber[0] == '+' && phoneNumber[1] == '9' && phoneNumber[2] == '9' && phoneNumber[3] == '4' && phoneNumber.Length == 13)
-                    {
-                        check = true;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Dogru daxil edilmeyib. ");
-                        Console.Write("Tekrar yazin: ");
-                        phoneNumber = Convert.ToString(Console.ReadLine()!);
-                    }
-
-                }
-                catch (Exception)
-                {
-                    Console.Write("Tekrar yazin: ");
-                    phoneNumber = Convert.ToString(Console.ReadLine()!);
-                }
-            }
-            Console.WriteLine("Telefon nomresi: " + phoneNumber);
+            return number > min && number < max;
         }
-
-        static void positionMain(string position)
+        public static bool IsLengthBetween(string text, int min, int max)
         {
-            bool check = false;
-
-            while (!check)
-            {
-                try
-                {
-                    if (position == "HR" || position == "Audit" || position == "Engineer")
-                    {
-                        check = true;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Dogru daxil edilmeyib. ");
-                        Console.Write("Tekrar yazin: ");
-                        position = Convert.ToString(Console.ReadLine()!);
-                    }
-                }
-                catch (Exception)
-                {
-                    Console.Write("Tekrar yazin: ");
-                    position = Convert.ToString(Console.ReadLine()!);
-                }
-            }
-
-            Console.WriteLine("Pozisiya: " + position);
+            return text.Length > min && text.Length < max;
         }
 
-        static void salaryMain(double salary)
+        //Method overloading (static polymorphism)
+        public static bool IsLengthBetween(int number, int min, int max)
         {
-            bool check = false;
+            return number > min && number < max;
+        }
+        public static bool IsUpperLetter(char letter)
+        {
+            char[] uppercaseLetters = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+                                        'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
 
-            while (!check)
+            foreach (char uppercaseLetter in uppercaseLetters) //while LOOP
             {
-                try
+                if (uppercaseLetter == letter)
                 {
-                    if (salary >= 1500 && salary <= 5000)
-                    {
-                        check = true;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Dogru daxil edilmeyib. ");
-                        Console.Write("Tekrar yazin: ");
-                        salary = Convert.ToDouble(Console.ReadLine()!);
-                    }
+                    return true;
                 }
-                catch (Exception)
+            }
+            return false;
+        }
+
+
+        public static bool IsDigit(string text)
+        {
+            foreach (char characted in text)
+            {
+                if (!IsDigit(characted))
                 {
-                    Console.Write("Tekrar yazin: ");
-                    salary = Convert.ToDouble(Console.ReadLine()!);
+                    return false;
                 }
             }
 
-            Console.WriteLine("Maas: " + salary);
+            return true;
         }
+        public static bool IsDigit(char digit)
+        {
+            char[] numbers = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+
+            foreach (char number in numbers) //Compiled to while LOOP in IL
+            {
+                if (digit == number)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+        public static bool IsExactLength(string text, int length)
+        {
+            return text.Length == length;
+        }
+
+        #endregion
     }
 }
