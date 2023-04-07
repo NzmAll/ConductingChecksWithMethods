@@ -1,4 +1,7 @@
-﻿namespace HRManagementSystem
+﻿using System.Globalization;
+using System.Text;
+
+namespace HRManagementSystem
 {
     //custom type
     public class Person
@@ -18,6 +21,10 @@
     {
         static void Main(string[] args)
         {
+            Console.InputEncoding = Encoding.Unicode;
+            Console.OutputEncoding = Encoding.Unicode;
+            CultureInfo ci = new CultureInfo("az"); 
+
             Console.WriteLine("Person's count : ");
             int count = int.Parse(Console.ReadLine()!);
             Person[] persons = new Person[count];
